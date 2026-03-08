@@ -1,0 +1,11 @@
+name = "Eleven Insight"
+license = "MIT"
+licenselink = ""
+description = "Custom theme for Eleven Insight consulting site"
+homepage = "https://eleveninsight.com"
+tags = ["consulting", "minimal", "editorial"]
+features = ["blog", "newsletter", "contact"]
+
+[author]
+  name = "Kristina Becvar"
+  email = "kristina@eleveninsight.com"

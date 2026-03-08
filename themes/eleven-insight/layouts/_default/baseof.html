@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/blog/index.xml" | absURL }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "/css/screen.css" | absURL }}">
+</head>
+<body>
+
+  <nav id="site-nav">
+    <a href="{{ "/" | absURL }}" class="nav-logo">Eleven<span>&nbsp;Insight</span></a>
+    <ul class="nav-links">
+      {{ range .Site.Menus.main }}
+      <li{{ if $.IsHome }} class="nav-item"{{ end }}>
+        <a href="{{ .URL }}"{{ if eq $.RelPermalink .URL }} class="nav-current"{{ end }}>{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    <button class="nav-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer>
+    <div class="footer-logo">Eleven<span>&nbsp;Insight</span></div>
+    <div class="footer-copy">&copy; {{ now.Year }} Eleven Insight &middot; Kristina Becvar</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('site-nav');
+      nav.style.padding = window.scrollY > 60 ? '1rem 4rem' : '1.5rem 4rem';
+    });
+
+    const toggle = document.querySelector('.nav-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    }
+  </script>
+</body>
+</html>

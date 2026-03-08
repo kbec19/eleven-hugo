@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<div class="blog-header">
+  <div class="container">
+    <p class="section-label">Writing</p>
+    <h1 class="section-title">From the <em>blog.</em></h1>
+    <p class="blog-desc">Thinking on democracy, civic strategy, data, and organizational leadership.</p>
+  </div>
+</div>
+
+<div class="blog-listing">
+  <div class="container">
+    {{ range .Pages }}
+    <a class="blog-post-row" href="{{ .Permalink }}">
+      <div class="blog-post-meta">
+        <span class="blog-post-date">{{ .Date.Format "02 Jan 2006" }}</span>
+        {{ with .Params.tags }}{{ range first 1 . }}
+        <span class="blog-post-tag">{{ . }}</span>
+        {{ end }}{{ end }}
+      </div>
+      <div class="blog-post-content">
+        <h2 class="blog-post-title">{{ .Title }}</h2>
+        <p class="blog-post-excerpt">{{ .Summary | truncate 160 }}</p>
+      </div>
+      <span class="blog-post-arrow">&rarr;</span>
+    </a>
+    {{ end }}
+
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</div>
+
+{{ end }}
