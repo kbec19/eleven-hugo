@@ -708,3 +708,54 @@ footer {
   color: var(--fog);
   margin-bottom: 2rem;
 }
+
+/* ── WHO THIS IS FOR ── */
+.who-for {
+  background: var(--white);
+  padding: 7rem 0;
+  position: relative;
+}
+.who-for-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+.who-for-item {
+  padding: 2.5rem;
+  border-top: 2px solid rgba(15,25,35,0.08);
+  transition: border-color 0.3s;
+  position: relative;
+}
+.who-for-item:hover {
+  border-top-color: var(--gold);
+}
+.who-for-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(184,149,106,0.25);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  transition: color 0.3s;
+}
+.who-for-item:hover .who-for-icon {
+  color: rgba(184,149,106,0.6);
+}
+.who-for-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+.who-for-item p {
+  font-size: 0.9rem;
+  color: #5a6a7a;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .who-for-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
