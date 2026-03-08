@@ -13,21 +13,17 @@ paginate = 10
 [menu]
   [[menu.main]]
     name = "About"
-    url = "/#about"
+    url = "/about/"
     weight = 1
   [[menu.main]]
     name = "Services"
-    url = "/#services"
+    url = "/services/"
     weight = 2
-  [[menu.main]]
-    name = "Approach"
-    url = "/#approach"
-    weight = 3
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 4
+    weight = 3
   [[menu.main]]
     name = "Contact"
     url = "/#contact"
-    weight = 5
+    weight = 4
