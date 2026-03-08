@@ -1,4 +1,4 @@
-{{ define "main" }}
+{ define "main" }
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -197,8 +197,7 @@
         <div class="newsletter-signup" style="margin-top:3rem;">
           <p class="section-label" style="margin-bottom:0.75rem;">Newsletter</p>
           <p style="font-size:0.9rem; color:var(--fog); margin-bottom:1.5rem; line-height:1.7;">Subscribe for occasional writing on democracy, civic strategy, and data.</p>
-          <!-- Replace the action URL with your Buttondown embed URL -->
-          <form action="https://buttondown.email/api/emails/embed-subscribe/eleveninsight" method="post" target="popupwindow" class="contact-form">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/eleveninsight" method="post" class="contact-form" referrerpolicy="unsafe-url">
             <div class="form-group">
               <label for="bd-email">Email address</label>
               <input type="email" name="email" id="bd-email" placeholder="your@email.com" required>
@@ -234,4 +233,4 @@
   </div>
 </section>
 
-{{ end }}
+{ end }
